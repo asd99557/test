@@ -11,7 +11,7 @@ pipeline {
           }
          stage('Test') {
             steps {
-              sh 'test -f build/car.txt' 
+              sh 'type build/car.txt' 
               sh 'grep "chassis" build/var.txt'
             }  
          }
