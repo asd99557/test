@@ -11,8 +11,8 @@ pipeline {
      }         
           stage('Test') {
               steps {
-                 bat 'type -f build/car.txt 
+                 bat 'type -f build/car.txt' 
               }
           }     
-}   
+ }  
  
