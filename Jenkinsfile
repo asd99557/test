@@ -11,8 +11,8 @@ pipeline {
           }
          stage('Test') {
             steps {
-              bat 'test -f build/car.txt' 
-              bat 'grep "chassis" build/var.txt'
+              sh 'test -f build/car.txt' 
+              sh 'grep "chassis" build/var.txt'
             }  
          }
       }    
