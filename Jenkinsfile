@@ -4,7 +4,7 @@ osler {
     stages {
         stage('Build') {
             steps {
-                bat D:\agent\workspace\demo12
+                   bat D:\agent\workspace\demo12
             }
         }
         stage('Test') {
