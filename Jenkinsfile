@@ -19,3 +19,4 @@ osler {
      archiveArtifacts artifacts: 'build/'  
     }
 }
+}
