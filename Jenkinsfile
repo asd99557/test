@@ -1,10 +1,10 @@
-pipeline {
+osler {
     agent {label 'windows'}
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                bat D:\agent\workspace\demo12
             }
         }
         stage('Test') {
