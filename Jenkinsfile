@@ -14,5 +14,6 @@ pipeline {
                  bat 'type -f build/car.txt' 
               }
           }     
- }  
+  }  
+}    
  
