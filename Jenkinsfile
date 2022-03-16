@@ -1,7 +1,6 @@
 pipeline {
     agent {label 'windows'}
-
-    stages {
+      stages {
         stage('Build') {
            steps {
               sh 'mkdir build' // create a new folder 
