@@ -7,8 +7,7 @@ pipeline {
               bat 'mkdir build' // create a new folder 
               bat 'type NUL >  build/car.txt' //create an empty file
               bat 'echo "chassis" > build/car.txt' // put chassis inside the file 
-              cat build/car.txt
-              type build/car.txt  
+              more build/car.txt  
              }
          }
       }    
