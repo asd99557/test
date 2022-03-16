@@ -1,4 +1,4 @@
-osler {
+pipeline {
     agent {label 'windows'}
 
    stage('Build') {
