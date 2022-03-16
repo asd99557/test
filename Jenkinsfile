@@ -10,4 +10,10 @@ pipeline {
              }
           }
       }
-}
+}   
+      stage('Test') {
+         steps {
+           bat 'test -f build/car.txt'
+           bat 'grep "chassis" build/car.txt' 
+       }
+     }     
