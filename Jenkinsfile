@@ -18,6 +18,11 @@ pipeline {
                 } else {
                      println "The File does not exist :("
 				}   
+         stage('publish') {
+            steps {
+                   archiveArtifacts artifacts: 'build/'
+      }
+  	} 			     
             }         
         }
     }
