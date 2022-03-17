@@ -1,28 +1,20 @@
 pipeline {
-    agent {label 'windows'}
- tools {
-     //// Install the Maven version configured.
-        maven 'Maven 3.3.9' 
-        jdk 'jdk8'
-    }    
-   stages {
-       stage('Build') {
-            steps {
-                echo "Building . .!"
-                 bat "mvn -DskipTests clean install"
+  agent any
+  tools {
+    maven 'maven-3.6.3' 
+  }
+  stages {
+    stage ('Build') {
+      steps {
+        sh 'mvn clean package'
+      }
+    }
+    stage ('Deploy') {
+      steps {
+        script {
+          deploy adapters: [tomcat9(credentialsId: 'tomcat_credential', path: '', url: 'http://dayal-test.letspractice.tk:8081')], contextPath: '/pipeline', onFailure: false, war: 'webapp/target/*.war' 
         }
       }
-	    stage('Test') {
-		    steps {
-			    echo 'Testing..'
-				bat "mvn -DskipTests test"
-				
-			}		
-        }
-		stage('Deploy') {
-		    steps {
-				echo 'Deploying...'
-			}
-		}
-	}
-}	
+    }
+  }
+}
