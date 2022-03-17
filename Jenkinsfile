@@ -1,32 +1,32 @@
 pipeline {
-    agent {label 'windows'}
-
-      stages {
-         stage('Build') {
+agent {label 'windows'}
+    tools { 
+        maven 'Maven' 
+    }
+    stages {
+        stage('Build') {
             steps {
-              bat 'mkdir build' // create a new folder 
-              bat 'type NUL >  build/car.txt' //create an empty file
-              bat 'echo "chassis" > build/car.txt' // put chassis inside the file 
-         }
-     }         
-         stage('Test') {
+                snDevOpsStep()
+                snDevOpsChange()
+                bat 'mvn clean install -DskipTests=true'
+            }
+        }
+        stage('Unit Test') {
             steps {
-		     script {
-                 Boolean bool = fileExists 'build/car.txt'
-                 if (bool) {
-                     println "The File exists :)"
-                } else {
-                     println "The File does not exist :("
-		 stage('publish') {
+                snDevOpsStep()
+                bat "mvn test -Dtest=AppTest"
+            }
+        }
+        stage('Deploy') {
             steps {
-		     script {
-                 archiveArtifacts artifacts: 'build/' 	
-                         }
-				      }
-			     }			
-				}   
-		  	 }
-           }         
-        } 
-     }
-  }  
+                snDevOpsStep()
+                snDevOpsChange()
+                // bat "mvn -B deploy"
+                // bat "mvn -B release:prepare"
+                // bat "mvn -B release:perform"
+                // deploy using kubernetes - kubectl
+                 echo "Deploy to prod"
+            }
+        }
+    }
+}
