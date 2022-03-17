@@ -22,6 +22,7 @@ pipeline {
             steps {
 		   script {   
                 bat archiveArtifacts artifacts: 'build/'
+		   }
 		                    }
       				}
   			} 			     
