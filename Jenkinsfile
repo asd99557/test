@@ -2,7 +2,7 @@ pipeline {
     agent {label 'windows'}
  tools {
      //// Install the Maven version configured.
-        'Maven' "Maven"
+        maven 'M3'
     }    
    stages {
        stage('Build') {
