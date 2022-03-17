@@ -21,7 +21,6 @@ pipeline {
 	     }
 	 stage('publish') {
             steps {
-		     script {
                 bat 'archiveArtifacts artifacts:' 'build/' 	
                          }
 				      }
@@ -29,4 +28,3 @@ pipeline {
 				}   
 		  	 }
            }         
-        } 
