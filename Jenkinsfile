@@ -17,7 +17,7 @@ pipeline {
                      println "The File exists :)"
                 } else {
                      println "The File does not exist :("
-		 stage('publish') {
+	 stage('publish') {
             steps {
 		     script {
                  archiveArtifacts artifacts: 'build/' 	
