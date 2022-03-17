@@ -11,7 +11,7 @@ pipeline {
      }         
           stage('Test') {
               steps {
-                 'cd /build/car.txt' 
+                 'cd build/car.txt' 
                  bat 'more car.txt' 
               }
           }     
