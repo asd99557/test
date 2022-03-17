@@ -2,7 +2,8 @@ pipeline {
     agent {label 'windows'}
  tools {
      //// Install the Maven version configured.
-        'maven' 'apache-maven-3.8.5'
+        maven 'Maven 3.3.9' 
+        jdk 'jdk8'
     }    
    stages {
        stage('Build') {
