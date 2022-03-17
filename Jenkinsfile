@@ -23,7 +23,7 @@ pipeline {
 		     script {
                  bat 'archiveArtifacts artifacts: build/car.txt'	
 		               }
-	                   }
+	                   i }
 		  	 }
                       }         
                 } 
