@@ -1,32 +1,27 @@
 pipeline {
-agent {label 'windows'}
-    tools { 
-        maven 'Maven' 
-    }
-    stages {
-        stage('Build') {
+    agent {label 'windows'}
+ tools {
+     //// Install the Maven version configured.
+        Maven "Maven"
+    }    
+   stages {
+       stage('Build') {
             steps {
-                snDevOpsStep()
-                snDevOpsChange()
-                bat 'mvn clean install -DskipTests=true'
-            }
+                echo "Building . .!"
+                 bat "mvn -DskipTests clean install"
         }
-        stage('Unit Test') {
-            steps {
-                snDevOpsStep()
-                bat "mvn test -Dtest=AppTest"
-            }
+      }
+	    stage('Test') {
+		    steps {
+			    echo 'Testing..'
+				bat "mvn -DskipTests test"
+				
+			}		
         }
-        stage('Deploy') {
-            steps {
-                snDevOpsStep()
-                snDevOpsChange()
-                // bat "mvn -B deploy"
-                // bat "mvn -B release:prepare"
-                // bat "mvn -B release:perform"
-                // deploy using kubernetes - kubectl
-                 echo "Deploy to prod"
-            }
-        }
-    }
-}
+		stage('Deploy') {
+		    steps {
+				echo 'Deploying...'
+			}
+		}
+	}
+}	
