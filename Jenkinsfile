@@ -1,5 +1,5 @@
-windows: {
-	node('Windows') {
+pipeline {
+    agent {label 'windows'} {
 		stage('Build') {
 			echo 'Build windows'
 		}
