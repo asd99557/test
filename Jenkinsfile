@@ -9,12 +9,19 @@ pipeline {
               bat 'echo "chassis" > build/car.txt' // put chassis inside the file 
          }
      }         
-          stage('Test') {
-              steps {
-                 'cd build/car.txt' 
-                 bat 'more car.txt' 
-              }
-          }     
-  }  
-}    
+         stage('Test') {
+            steps {
+		     script {
+                 Boolean bool = fileExists 'build/car.txt'
+                 if (bool) {
+                     println "The File exists :)"
+                } else {
+                     println "The File does not exist :("
+				}   
+            }         
+        }
+    }
+ }          
+        
+                
  
