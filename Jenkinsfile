@@ -20,7 +20,9 @@ pipeline {
 				}   
          stage('publish') {
             steps {
-                bat archiveArtifacts artifacts: 'build/'
+		    script {   
+                 bat archiveArtifacts artifacts: 'build/'
+		    }
       				}
   			} 			     
                   }         
