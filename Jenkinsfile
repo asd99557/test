@@ -19,7 +19,7 @@ pipeline {
                      println "The File does not exist :("
 		 }
 	     }
-	 stage('publish') {
+	     stage('publish') {
             steps {
                 bat 'echo archiveArtifacts artifacts:' 'build/' 	
                          }
@@ -27,4 +27,4 @@ pipeline {
 			     }			
 				}   
 		  	 }
-           }         
+           }   
