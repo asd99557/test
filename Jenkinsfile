@@ -11,7 +11,7 @@ pipeline {
      }         
           stage('Test') {
               steps {
-                 bat 'cd C:\agent\workspace\test_main\build\car.txt' 
+                 bat 'cd C:/agent/workspace/test_main/build/car.txt' 
                  bat 'more car.txt' 
               }
           }     
