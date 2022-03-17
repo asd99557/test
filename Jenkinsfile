@@ -18,15 +18,15 @@ pipeline {
                 } else {
                      println "The File does not exist :("
 				}   
-         stage('publish') {
+         stage('Publish') {
             steps {
-		   script {   
-                bat 'archiveArtifacts artifacts: build'
-		                    }
-      				}
-  			} 			     
-                  }         
-             } 
+		     script {
+                 bat 'archiveArtifacts artifacts: build/car.txt'	
+		               }
+	                   }
+		  	 }
+                      }         
+                } 
         }
   }         
 }
