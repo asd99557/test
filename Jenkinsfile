@@ -11,4 +11,5 @@ pipeline {
 			echo 'Static analysis windows'
 		}
 	}
-}
+  }
+}	
