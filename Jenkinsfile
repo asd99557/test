@@ -17,6 +17,9 @@ pipeline {
                      println "The File exists :)"
                 } else {
                      println "The File does not exist :("
+		 }
+			     
+          }
 	 stage('publish') {
             steps {
 		     script {
